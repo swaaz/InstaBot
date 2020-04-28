@@ -23,4 +23,4 @@ class Instabot():
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/article/main/div/div[2]/section[1]/section[1]/a").click()
         
     
-bot = Instabot('smr.pvtt','jackieisthebest')
+bot = Instabot()
