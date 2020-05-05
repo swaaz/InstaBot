@@ -1,8 +1,8 @@
 from selenium import webdriver
 from time import sleep
 import secrets
+username = secrets.usr
 password = secrets.pwd
-names = []
 class Instabot():
     def __init__(self,username,password):
         self.username = username
@@ -27,16 +27,37 @@ class Instabot():
         sleep(2)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/article/main/div/div[2]/section[1]/section[1]/a").click()
         sleep(2)
-        pending_id = self._getnames()
-        print(pending_id)
-        sleep(2)
-        self.driver.find_element_by_xpath("//input[@placeholder=\"Search\"]").send_keys(pending_id)
-        sleep(3)
-        self.driver.find_element_by_xpath("//a[contains(@href,'/{}/')]".format(pending_id)).click()
-        sleep(2)
-        self.driver.find_element_by_xpath("//button[contains(text(), 'Requested')]").click()
-        sleep(3)
-        self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
+        while True:
+            try:
+                pending_id = self._getnames()
+                print(pending_id)
+                sleep(2)
+                self.driver.find_element_by_xpath("//input[@placeholder=\"Search\"]").send_keys(pending_id)
+                sleep(3)
+                self.driver.find_element_by_xpath("//a[contains(@href,'/{}/')]".format(pending_id)).click()
+                sleep(2)
+                self.driver.find_element_by_xpath("//button[contains(text(), 'Requested')]").click()
+                sleep(3)
+                self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
+                sleep(2)
+                '''
+                self.driver.find_element_by_xpath("//a[contains(@href,'/{}')]".format(self.username)).click()
+                sleep(3)
+                self.driver.find_element_by_xpath("//button[@type = 'button']").click()
+                sleep(2)
+                self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/ul/li[7]/a").click()
+                sleep(2)
+                self.driver.find_element_by_xpath("//a[contains(text(), 'View Account Data')]").click()
+                sleep(2)
+                self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/article/main/div/div[2]/section[1]/section[1]/a").click()
+                sleep(2)
+                '''
+                self.driver.back()
+                sleep(2)
+                self.driver.refresh()
+            except:
+                pass
+        
 
     def _getnames(self):
         scroll_box = self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/article/main")
@@ -45,6 +66,6 @@ class Instabot():
         
     
 
-bot = Instabot('_swaaz_',password)
+bot = Instabot(username,password)
 bot.get_pending_request()
 
