@@ -39,24 +39,25 @@ class Instabot():
         sleep(2)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/article/main/div/div[2]/section[1]/section[1]/a").click()
         sleep(2)
+        print("\n****** Cancelling Requests ******\n")
         z = True
-        while True:
+        while z:
             try:
                 pending_id = self._get_pending_names()
                 print(pending_id)
-                sleep(2)
+                sleep(3)
                 self.driver.find_element_by_xpath("//input[@placeholder=\"Search\"]").send_keys(pending_id)
-                sleep(3)
+                sleep(4)
                 self.driver.find_element_by_xpath("//a[contains(@href,'/{}/')]".format(pending_id)).click()
-                sleep(2)
+                sleep(4)
                 self.driver.find_element_by_xpath("//button[contains(text(), 'Requested')]").click()
-                sleep(3)
+                sleep(4)
                 self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
-                sleep(3)
+                sleep(4)
                 self.driver.back()
-                sleep(3)
+                sleep(4)
                 self.driver.refresh()
-                sleep(3)
+                sleep(4)
             except:
                 print("Tadaaaa!!!!!, Task Completed!!!!")
                 z = False
