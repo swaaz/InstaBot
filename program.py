@@ -117,7 +117,7 @@ def main():
     while a:
         print()
         print("****** Insta-Bot ******")
-        x = int(input("1. List the names of Un-followers\n2. Fans\n3. Cancel all the sent follow requests\n4. Exit\nEnter the choice : "))
+        x = int(input("1. list Un-followers\n2. list Fans\n3. Cancel all the sent follow requests\n4. Exit\nEnter the choice : "))
         if x == 1:
             bot.get_unfollowers()
         elif x == 2:
