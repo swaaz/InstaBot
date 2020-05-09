@@ -82,6 +82,7 @@ class Instabot():
         print("\n****** Unfollowers ******\n")
         for x in not_following_back :
             print(x)
+        sleep(4)
         
     #function to get the names of fans
     def get_fans(self):

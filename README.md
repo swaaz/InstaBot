@@ -64,7 +64,7 @@ self.driver = webdriver.Chrome(executable_path = "./webdrivers/chrome_webdriver/
 
 example path
 ```
-
+C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\firefox_webdriver\geckodriver-v0.26.0-win32\
 ```
 
 copy the code and paste in 18ₜₕ line
@@ -77,14 +77,14 @@ self.driver = webdriver.Firefox(executable_path = ".\\webdrivers\\firefox_webdri
 
 example
 ```
-
+C:\Users\sharan\Downloads\temp\x\InstaBot\webdrivers\chrome_webdriver\chromedriver_win32\
 ```
 
 <strong>Read the instruction given below carefully</strong>
 copy the code and paste in 18ₜₕ line
 
 ```
-self.driver = webdriver.Chrome(executable_path = ".\\webdrivers\\chrome_webdriver\\chromedriver_win32\\chromedriver.exe")
+self.driver = webdriver.Chrome(executable_path = ".\\webdrivers\\chrome_webdrive\\chromedriver_win32\\geckodriver.exe")
 ```
 #### Instructions to add path to your Environment variable
 - Copy the path of the webdriver
