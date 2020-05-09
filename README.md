@@ -8,29 +8,97 @@ This is an Instagram bot that can automate and perform some tasks; makes your ta
 </div>
 
 ### Clone project
-first you need to fork and then copy the url from clone option
+first you need to fork and then copy the url from clone option  
+run in gitBash or terminal :
 ```
 $ git clone [url]
 ```
 ### Install Python 3
+run in terminal :
 ```
 $ sudo apt-get update
 $ sudo apt-get install python3.7
 ```
-### Install Selenium
+### Install PIP
+#### For Windows user
+- Download the ```git-pip.py``` by clicking [here](https://bootstrap.pypa.io/get-pip.py)
+- run in gitbash or cmd :
 ```
+$ python get-pip.py
+```
+- verify by running :
+```
+$ pip -V
+```
+#### For linux user
+- run in terminal :
+```
+$ apt install python3-pip
+or
+$ python get-pip.py     
+```
+### Install Selenium
+run in terminal or cmd/gitbash
+```
+$ pip install selenium
+or
 $ pip3 install selenium
 ```
 ### Change the webdriver path
-#### the path of the webdriver has to changed according to your environment
+The path of the webdriver has to changed according to your environment
 edit the 18ₜₕ line of file  ``` ./program.py ```
-```
-self.driver = webdriver.Firefox(executable_path = "[path]")
-```
-example:
+#### linux user
+##### if you are using firefox
 ```
 self.driver = webdriver.Firefox(executable_path = "./webdrivers/firefox_webdriver/geckodriver-v0.26.0-linux64/geckodriver")
 ```
+##### if you are using chrome
+
+```
+self.driver = webdriver.Chrome(executable_path = "./webdrivers/chrome_webdriver/chromedriver_linux64/chromedriver")
+```
+#### Windows user
+
+##### if you are using firefox
+<strong>copy the path of webdriver depending upon your environment and add the path to Environment Variable as isntructed below</strong>
+
+example path
+```
+
+```
+
+copy the code and paste in 18ₜₕ line
+```
+self.driver = webdriver.Firefox(executable_path = ".\\webdrivers\\firefox_webdriver\\geckodriver-v0.26.0-win32\\geckodriver.exe")
+```
+
+##### if you are using chrome
+<strong>copy the path of webdriver depending upon your environment and add the path to Environment Variable as isntructed below</strong>
+
+example
+```
+
+```
+
+<strong>Read the instruction given below carefully</strong>
+copy the code and paste in 18ₜₕ line
+
+```
+self.driver = webdriver.Chrome(executable_path = ".\\webdrivers\\chrome_webdriver\\chromedriver_win32\\chromedriver.exe")
+```
+#### Instructions to add path to your Environment variable
+- Copy the path of the webdriver
+- follow the instruction given below
+<div align="center">
+    <div><img src="./src/1.png" width="70%"><div>
+    <div><img src="./src/2.png"width="70%"><div>
+    <div><img src="./src/3.png"width="70%"><div>
+    <div><img src="./src/4.png"width="70%"><div>
+    <div><img src="./src/5.png"width="70%"><div>
+    <div><img src="./src/6.png"width="70%"><div>
+</div>  
+<div align="left">
+
 #### file structure:
 ```
 .
@@ -51,7 +119,10 @@ edit the ```./secrets.py``` file and add your username and passport
 usr = "[username]" 
 pwd = "[password]"
 ```
+
 ### Run the program
 ```
+$ python program.py
+or
 $ python3 program.py
 ```
