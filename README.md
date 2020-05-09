@@ -9,7 +9,7 @@ This is an Instagram bot that can automate and perform some tasks; makes your ta
 
 ### Clone project
 first you need to fork and then copy the url from clone option  
-run in gitBash or terminal :
+run in gitbash or terminal :
 ```
 $ git clone [url]
 ```
@@ -58,6 +58,7 @@ self.driver = webdriver.Firefox(executable_path = "./webdrivers/firefox_webdrive
 self.driver = webdriver.Chrome(executable_path = "./webdrivers/chrome_webdriver/chromedriver_linux64/chromedriver")
 ```
 #### Windows user
+<strong> Read the Instruction carefully </strong>
 
 ##### if you are using firefox
 <strong>copy the path of webdriver depending upon your environment and add the path to Environment Variable as isntructed below</strong>
@@ -77,7 +78,7 @@ self.driver = webdriver.Firefox(executable_path = ".\\webdrivers\\firefox_webdri
 
 example
 ```
-C:\Users\sharan\Downloads\temp\x\InstaBot\webdrivers\chrome_webdriver\chromedriver_win32\
+C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\chrome_webdriver\chromedriver_win32\
 ```
 
 <strong>Read the instruction given below carefully</strong>
@@ -126,3 +127,10 @@ $ python program.py
 or
 $ python3 program.py
 ```
+### Helpful links
+- [Installing PIP on Windows](https://www.liquidweb.com/kb/install-pip-windows/)
+- [Installing PIP in Linux](https://www.tecmint.com/install-pip-in-linux/)
+- [Download Geckodriver](https://github.com/mozilla/geckodriver/releases)
+- [Download Chrome Driver](https://chromedriver.chromium.org/downloads)
+- [Setup selenium and webdriver for Linux](https://www.youtube.com/watch?v=CriSHYMtg9M)
+- [Setup selenium and webdriver for Windows](https://youtu.be/FFDDN1C1MEQ)
