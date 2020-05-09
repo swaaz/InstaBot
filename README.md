@@ -53,5 +53,5 @@ pwd = "[password]"
 ```
 ### Run the program
 ```
-$ pip3 program.py
+$ python3 program.py
 ```
