@@ -17,7 +17,7 @@ class Instabot():
         self.password = password    #storig the password in class
         self.driver = webdriver.Firefox(executable_path = "./webdrivers/firefox_webdriver/geckodriver-v0.26.0-linux64/geckodriver") #this is the path of webdriver, here I used geckodriver-linux since I am using Firefox in linux. Change the path of webdriver according to your environment
         self.driver.get("https://instagram.com/") 
-        sleep(4)
+        sleep(6)
         self.driver.find_element_by_xpath("//input[@name=\"username\"]").send_keys(username)    
         self.driver.find_element_by_xpath("//input[@name=\"password\"]").send_keys(password)    
         self.driver.find_element_by_xpath('//button[@type="submit"]').click()   
@@ -29,7 +29,7 @@ class Instabot():
     def cancel_sent_requests(self):
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         sleep(2)
-        self.driver.find_element_by_xpath("//a[contains(@href,'/{}')]".format(self.username)).click()
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
         sleep(2)
         self.driver.find_element_by_xpath("//button[@type = 'button']").click()
         sleep(2)
@@ -41,10 +41,14 @@ class Instabot():
         sleep(2)
         print("\n****** Cancelling Requests ******\n")
         z = True
+        prev = " "
+        count = 0
         while z:
             try:
                 pending_id = self._get_pending_names()
-                print(pending_id)
+                if pending_id != prev:
+                    count += 1
+                    print(count,pending_id)
                 sleep(3)
                 self.driver.find_element_by_xpath("//input[@placeholder=\"Search\"]").send_keys(pending_id)
                 sleep(4)
@@ -72,7 +76,7 @@ class Instabot():
     def get_unfollowers(self):
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         sleep(2)
-        self.driver.find_element_by_xpath("//a[contains(@href,'/{}')]".format(self.username)).click()
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
         sleep(2)
         self.driver.find_element_by_xpath("//a[contains(@href,'/following')]").click()
         following = self._get_names()
@@ -80,15 +84,20 @@ class Instabot():
         followers = self._get_names()
         not_following_back = [user for user in following if user not in followers]
         print("\n****** Unfollowers ******\n")
+        prev = " "
+        count = 0
         for x in not_following_back :
-            print(x)
+            if prev != x:
+                count += 1
+                print(count,x)
         sleep(4)
+        
         
     #function to get the names of fans
     def get_fans(self):
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         sleep(2)
-        self.driver.find_element_by_xpath("//a[contains(@href,'/{}')]".format(self.username)).click()
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
         sleep(2)
         self.driver.find_element_by_xpath("//a[contains(@href,'/following')]").click()
         following = self._get_names()
@@ -96,8 +105,13 @@ class Instabot():
         followers = self._get_names()
         fans = [user for user in followers if user not in following]
         print("\n****** Fans ******\n")
+        prev = " "
+        count = 0
         for x in fans :
-            print(x)
+            if prev != x:
+                count += 1
+                print(count,x)
+        sleep(4)
 
     #function which returns list of names
     def _get_names(self):
@@ -111,6 +125,7 @@ class Instabot():
         names = [name.text for name in links if name.text != '']
         self.driver.find_element_by_xpath("/html/body/div[4]/div/div[1]/div/div[2]/button").click()
         return names
+
 
 #main function
 def main():
