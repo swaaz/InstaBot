@@ -9,7 +9,7 @@ This is an Instagram bot that can automate and perform some tasks; makes your ta
 
 ### Clone project
 First you need to fork and then copy the url from clone option  
-run in gitbash or terminal :
+Run in gitbash or terminal :
 ```
 $ git clone [url]
 ```
@@ -73,7 +73,7 @@ self.driver = webdriver.Chrome(executable_path = ".\\webdrivers\\chrome_webdrive
 <strong> Read the Instruction carefully </strong>
 
 #### Instructions to add path to your Environment variable
-- copy the path of webdriver which is inside ```InstaBot``` folder and add the path to Environment Variable as instructed below
+- Copy the path of webdriver which is inside ```InstaBot``` folder and add the path to Environment Variable as instructed below
 ##### if you are using firefox
 Begining of the path will depend on your system and the location you cloned the repo
 ```
@@ -84,7 +84,7 @@ example :
 C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\firefox_webdriver\geckodriver-v0.26.0-win32\
 ```
 ##### if you are using chrome
-begining of the path will depend on your system and the location you cloned the repo
+Begining of the path will depend on your system and the location you cloned the repo
 ```
 .....\InstaBot\webdrivers\chrome_webdriver\chromedriver_win32\
 ```
