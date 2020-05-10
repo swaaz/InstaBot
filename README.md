@@ -149,9 +149,9 @@ or
 $ python3 program.py
 ```
 ### Helpful links
-- [Install Python3](https://realpython.com/installing-python/)
+- [Install Python 3](https://realpython.com/installing-python/)
 - [Installing PIP on Windows](https://www.liquidweb.com/kb/install-pip-windows/)
-- [Installing PIP in Linux](https://www.tecmint.com/install-pip-in-linux/)
+- [Installing PIP on Linux](https://www.tecmint.com/install-pip-in-linux/)
 - [Download Geckodriver](https://github.com/mozilla/geckodriver/releases)
 - [Download Chrome Driver](https://chromedriver.chromium.org/downloads)
 - [Setup selenium and webdriver for Linux](https://www.youtube.com/watch?v=CriSHYMtg9M)
