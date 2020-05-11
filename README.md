@@ -81,7 +81,7 @@ Begining of the path will depend on your system and the location you cloned the 
 ```
 example : 
 ```
-C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\firefox_webdriver\geckodriver-v0.26.0-win32\
+C:\Users\sharan\Downloads\temp\InstaBot\webdrivers\firefox_webdriver\geckodriver-v0.26.0-win32\
 ```
 ##### if you are using chrome
 Begining of the path will depend on your system and the location you cloned the repo
@@ -90,7 +90,7 @@ Begining of the path will depend on your system and the location you cloned the 
 ```
 example : 
 ```
-C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\chrome_webdriver\chromedriver_win32\
+C:\Users\sharan\Downloads\temp\InstaBot\webdrivers\chrome_webdriver\chromedriver_win32\
 ```
 - Then go to ```This PC``` -> Right-click -> Properties -> Advanced system setting -> Advanced -> Environment Variables -> User system -> select ```path``` -> Edit -> New -> Paste the copied path -> OK  
 ##### Above instrution in show below
