@@ -102,14 +102,14 @@ C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\chrome_webdriver\chromedriver_
     <div><img src="./src/5.png"width="70%"><div><br>
     <div><img src="./src/6.png"width="70%"><div><br>
 </div>  
+<strong>How to add Firefox webdriver path to environment variable
 <div>
-    <video width="400" controls>
-        <source src="./src/chrome_driver.mp4" type="video/mp4">
-        <source src=",/src/chrome_driver.webm" type="video/webm">
-        Your browser does not support HTML video.
-    </video>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/wtiq5FX9lxE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div> 
-
+<strong>How to add chrome webdriver path to environment variable
+<div>
+   <iframe width="560" height="315" src="https://youtu.be/mxVfa6q-03M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div> 
 
 
 <div align="left">
