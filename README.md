@@ -81,7 +81,7 @@ Begining of the path will depend on your system and the location you cloned the 
 ```
 example : 
 ```
-C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\firefox_webdriver\geckodriver-v0.26.0-win32\
+C:\Users\sharan\Downloads\temp\InstaBot\webdrivers\firefox_webdriver\geckodriver-v0.26.0-win32\
 ```
 ##### if you are using chrome
 Begining of the path will depend on your system and the location you cloned the repo
@@ -90,7 +90,7 @@ Begining of the path will depend on your system and the location you cloned the 
 ```
 example : 
 ```
-C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\chrome_webdriver\chromedriver_win32\
+C:\Users\sharan\Downloads\temp\InstaBot\webdrivers\chrome_webdriver\chromedriver_win32\
 ```
 - Then go to ```This PC``` -> Right-click -> Properties -> Advanced system setting -> Advanced -> Environment Variables -> User system -> select ```path``` -> Edit -> New -> Paste the copied path -> OK  
 ##### Above instrution in show below
@@ -102,15 +102,13 @@ C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\chrome_webdriver\chromedriver_
     <div><img src="./src/5.png"width="70%"><div><br>
     <div><img src="./src/6.png"width="70%"><div><br>
 </div>  
-<strong>How to add Firefox webdriver path to environment variable
-<div>
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/wtiq5FX9lxE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div> 
-<strong>How to add chrome webdriver path to environment variable
-<div>
-   <iframe width="560" height="315" src="https://youtu.be/mxVfa6q-03M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div> 
+<strong>How to add Firefox webdriver path to environment variable</strong>
 
+[![Add firefox webdriver path](https://res.cloudinary.com/marcomontalbano/image/upload/v1589211316/video_to_markdown/images/youtube--wtiq5FX9lxE-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/wtiq5FX9lxE "Add firefox webdriver path")
+
+<strong>How to add chrome webdriver path to environment variable</strong>
+
+[![Add chrome webdriver path](https://res.cloudinary.com/marcomontalbano/image/upload/v1589211581/video_to_markdown/images/youtube--mxVfa6q-03M-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/mxVfa6q-03M "Add chrome webdriver path")
 
 <div align="left">
 

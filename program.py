@@ -27,6 +27,7 @@ class Instabot():
 
     #function to cancel all the pending follow requests
     def cancel_sent_requests(self):
+        sleep(2)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         sleep(2)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
@@ -66,6 +67,7 @@ class Instabot():
                 print("Tadaaaa!!!!!, Task Completed!!!!")
                 z = False
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
+
     #function which return the name from the list
     def _get_pending_names(self):
         scroll_box = self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/article/main")
@@ -74,6 +76,7 @@ class Instabot():
 
     #function to get the names of unfollowers
     def get_unfollowers(self):
+        sleep(2)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         sleep(2)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
@@ -95,6 +98,7 @@ class Instabot():
         
     #function to get the names of fans
     def get_fans(self):
+        sleep(2)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         sleep(2)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
