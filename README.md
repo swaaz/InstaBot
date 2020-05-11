@@ -102,6 +102,16 @@ C:\Users\swaaz\Downloads\temp\InstaBot\webdrivers\chrome_webdriver\chromedriver_
     <div><img src="./src/5.png"width="70%"><div><br>
     <div><img src="./src/6.png"width="70%"><div><br>
 </div>  
+<div>
+    <video width="400" controls>
+        <source src="./src/chrome_driver.mp4" type="video/mp4">
+        <source src=",/src/chrome_driver.webm" type="video/webm">
+        Your browser does not support HTML video.
+    </video>
+</div> 
+
+
+
 <div align="left">
 
 
