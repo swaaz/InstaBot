@@ -138,14 +138,14 @@ def main():
     while a:
         print()
         print("****** Insta-Bot ******")
-        x = int(input("1. list Un-followers\n2. list Fans\n3. Cancel all the sent follow requests\n4. Exit\nEnter the choice : "))
-        if x == 1:
+        x = input("1. list Un-followers\n2. list Fans\n3. Cancel all the sent follow requests\n4. Exit\nEnter the choice : ")
+        if x == "1":
             bot.get_unfollowers()
-        elif x == 2:
+        elif x == "2":
             bot.get_fans()
-        elif x == 3:
+        elif x == "3":
             bot.cancel_sent_requests()
-        elif x == 4:
+        elif x == "4":
             a = False
         else:
             print("Invalid option!!")
