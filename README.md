@@ -1,7 +1,7 @@
 <h1 align="center"> InstaBot</h1>
 <h2 align="center"> Bot built for Instagram using Python and Selenium. </h2>
 <h3 align="center"> 
-This is an Instagram bot that can automate and perform some tasks; makes your task easier. The Bot can show the list of un-followers from you Instagram or it can show your fans and also it can cancel all the pending follow requests which you have already sent before.
+This is an Instagram bot that can automate and perform some tasks; makes your task easier. The Bot can show the list of un-followers from you Instagram or it can show your fans and also it can cancel all the pending follow requests which you have already sent before or it can aslo unfollow those who don't follow you back.
 </h3>
 <div align="center">
     <img src="./src/bot.gif" width="300x" height="400px">
