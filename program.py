@@ -50,6 +50,7 @@ class Instabot():
                 if pending_id != prev:
                     count += 1
                     print(count,pending_id)
+                    prev = pending_id
                 sleep(3)
                 self.driver.find_element_by_xpath("//input[@placeholder=\"Search\"]").send_keys(pending_id)
                 sleep(4)
@@ -93,6 +94,7 @@ class Instabot():
             if prev != x:
                 count += 1
                 print(count,x)
+                prev = x
         sleep(4)
         
         
@@ -115,6 +117,7 @@ class Instabot():
             if prev != x:
                 count += 1
                 print(count,x)
+                prev = x
         sleep(4)
 
     #function which returns list of names
@@ -129,6 +132,46 @@ class Instabot():
         names = [name.text for name in links if name.text != '']
         self.driver.find_element_by_xpath("/html/body/div[4]/div/div[1]/div/div[2]/button").click()
         return names
+    
+    #function cancel unfollowers
+    def cancel_unfollowers(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
+        sleep(2)
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
+        sleep(2)
+        self.driver.find_element_by_xpath("//a[contains(@href,'/following')]").click()
+        following = self._get_names()
+        self.driver.find_element_by_xpath("//a[contains(@href,'/followers')]").click()
+        followers = self._get_names()
+        not_following_back = [user for user in following if user not in followers]
+        sleep(2)
+        for x in not_following_back:
+            y = None
+            self.driver.find_element_by_xpath("//input[@placeholder=\"Search\"]").send_keys(x)
+            sleep(4)
+            self.driver.find_element_by_xpath("//a[contains(@href,'/{}/')]".format(x)).click()
+            sleep(2)
+            print("\nDo you want to unfollow : {}".format(x))
+            y = input("1. Yes\t2. No\nEnter the choice : ")
+            if y == "1":                
+                self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/span/span[1]/button").click()
+                sleep(2)
+                self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
+                sleep(2)
+            else:
+                continue
+
+    def Exit(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
+        sleep(2)
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
+        sleep(2)
+        self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div/button").click()
+        sleep(2)
+        self.driver.find_element_by_xpath("//button[contains(text(), 'Log Out')]").click()
+
 
 
 #main function
@@ -138,7 +181,7 @@ def main():
     while a:
         print()
         print("****** Insta-Bot ******")
-        x = input("1. list Un-followers\n2. list Fans\n3. Cancel all the sent follow requests\n4. Exit\nEnter the choice : ")
+        x = input("1. list Un-followers\n2. list Fans\n3. Cancel all the sent follow requests\n4. Unfollowers those who don't follow you back\n5. Exit\nEnter the choice : ")
         if x == "1":
             bot.get_unfollowers()
         elif x == "2":
@@ -146,6 +189,9 @@ def main():
         elif x == "3":
             bot.cancel_sent_requests()
         elif x == "4":
+            bot.cancel_unfollowers()
+        elif x == "5":
+            bot.Exit()
             a = False
         else:
             print("Invalid option!!")
