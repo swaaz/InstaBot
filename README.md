@@ -165,3 +165,7 @@ $ python3 program.py
 - [Download Chrome Driver](https://chromedriver.chromium.org/downloads)
 - [Setup selenium and webdriver for Linux](https://www.youtube.com/watch?v=CriSHYMtg9M)
 - [Setup selenium and webdriver for Windows](https://youtu.be/FFDDN1C1MEQ)
+
+### Contributers
+- [Swaaz](https://github.com/swaaz/)
+- [JBLew](https://github.com/autumnlewjb)
