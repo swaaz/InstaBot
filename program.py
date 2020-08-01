@@ -20,7 +20,8 @@ class Instabot():
     def __init__(self,username,password):
         self.username = username    #storing the username in class
         self.password = password    #storig the password in class
-        self.driver = webdriver.Firefox(executable_path = "./webdrivers/firefox_webdriver/geckodriver-v0.26.0-linux64/geckodriver") #this is the path of webdriver, here I used geckodriver-linux since I am using Firefox in linux. Change the path of webdriver according to your environment
+        # self.driver = webdriver.Firefox(executable_path = "./webdrivers/firefox_webdriver/geckodriver-v0.26.0-linux64/geckodriver") #this is the path of webdriver, here I used geckodriver-linux since I am using Firefox in linux. Change the path of webdriver according to your environment
+        self.driver = webdriver.Chrome()
         self.driver.get("https://instagram.com/")
         self._make_driver_wait("//input[@name=\"username\"]")
         self.driver.find_element_by_xpath("//input[@name=\"username\"]").send_keys(username)    
@@ -130,8 +131,9 @@ class Instabot():
 
     #function which returns list of names
     def _get_names(self):
-        self._make_driver_wait("/html/body/div[4]/div/div[2]")
-        scroll_box = self.driver.find_element_by_xpath("/html/body/div[4]/div/div[2]")
+        # TODO: The app might still change in future. If timeout exception happens again, just change the path of the elements below. 
+        self._make_driver_wait("/html/body/div[4]/div/div/div[2]")
+        scroll_box = self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[2]")
         last_ht, ht = 0, 1
         while last_ht != ht:
             last_ht = ht
@@ -140,8 +142,8 @@ class Instabot():
         self._make_driver_wait('a', "tag_name")
         links = scroll_box.find_elements_by_tag_name('a')
         names = [name.text for name in links if name.text != '']
-        self._make_driver_wait("/html/body/div[4]/div/div[1]/div/div[2]/button")
-        self.driver.find_element_by_xpath("/html/body/div[4]/div/div[1]/div/div[2]/button").click()
+        self._make_driver_wait("/html/body/div[4]/div/div/div[1]/div/div[2]/button")
+        self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[1]/div/div[2]/button").click()
         return names
     
     #function cancel unfollowers
