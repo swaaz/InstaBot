@@ -7,6 +7,7 @@ import secrets
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import StaleElementReferenceException
 
 
 #getting values usr and pwd from secrets.py file and assigning the values to username and password
@@ -137,7 +138,10 @@ class Instabot():
         while last_ht != ht:
             last_ht = ht
             sleep(1)
-            ht = self.driver.execute_script("arguments[0].scrollTo(0, arguments[0].scrollHeight); return arguments[0].scrollHeight;", scroll_box)
+            try:
+                ht = self.driver.execute_script("arguments[0].scrollTo(0, arguments[0].scrollHeight); return arguments[0].scrollHeight;", scroll_box)
+            except StaleElementReferenceException:
+                continue
         self._make_driver_wait('a', "tag_name")
         links = scroll_box.find_elements_by_tag_name('a')
         names = [name.text for name in links if name.text != '']
