@@ -7,6 +7,7 @@ import secrets
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import StaleElementReferenceException
 
 
 #getting values usr and pwd from secrets.py file and assigning the values to username and password
@@ -40,8 +41,8 @@ class Instabot():
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a").click()
         self._make_driver_wait("//div[@class = 'AFWDX']")
         self.driver.find_element_by_xpath("//button[@type = 'button']").click()
-        self._make_driver_wait("//a[contains(text(), 'Privacy and Security')]")
-        self.driver.find_element_by_xpath("//a[contains(text(), 'Privacy and Security')]").click()
+        self._make_driver_wait("//button[contains(text(), 'Privacy and Security')]")
+        self.driver.find_element_by_xpath("//button[contains(text(), 'Privacy and Security')]").click()
         self._make_driver_wait("//a[contains(text(), 'View Account Data')]")
         self.driver.find_element_by_xpath("//a[contains(text(), 'View Account Data')]").click()
         self._make_driver_wait("/html/body/div[1]/section/main/div/article/main/div/div[2]/section[1]/section[1]/a")
@@ -130,18 +131,22 @@ class Instabot():
 
     #function which returns list of names
     def _get_names(self):
-        self._make_driver_wait("/html/body/div[4]/div/div[2]")
-        scroll_box = self.driver.find_element_by_xpath("/html/body/div[4]/div/div[2]")
+        # TODO: The app might still change in future. If timeout exception happens again, just change the path of the elements below. 
+        self._make_driver_wait("/html/body/div[4]/div/div/div[2]")
+        scroll_box = self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[2]")
         last_ht, ht = 0, 1
         while last_ht != ht:
             last_ht = ht
             sleep(1)
-            ht = self.driver.execute_script("arguments[0].scrollTo(0, arguments[0].scrollHeight); return arguments[0].scrollHeight;", scroll_box)
+            try:
+                ht = self.driver.execute_script("arguments[0].scrollTo(0, arguments[0].scrollHeight); return arguments[0].scrollHeight;", scroll_box)
+            except StaleElementReferenceException:
+                continue
         self._make_driver_wait('a', "tag_name")
         links = scroll_box.find_elements_by_tag_name('a')
         names = [name.text for name in links if name.text != '']
-        self._make_driver_wait("/html/body/div[4]/div/div[1]/div/div[2]/button")
-        self.driver.find_element_by_xpath("/html/body/div[4]/div/div[1]/div/div[2]/button").click()
+        self._make_driver_wait("/html/body/div[4]/div/div/div[1]/div/div[2]/button")
+        self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[1]/div/div[2]/button").click()
         return names
     
     #function cancel unfollowers
@@ -168,8 +173,8 @@ class Instabot():
             print("\nDo you want to unfollow : {}".format(x))
             y = input("1. Yes\t2. No\nEnter the choice : ")
             if y == "1":
-                self._make_driver_wait("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/span/span[1]/button")
-                self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/span/span[1]/button").click()
+                self._make_driver_wait("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/div/span/span[1]/button")
+                self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/div/span/span[1]/button").click()
                 self._make_driver_wait("//button[contains(text(), 'Unfollow')]")
                 self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
             else:
