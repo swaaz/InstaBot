@@ -169,8 +169,8 @@ class Instabot():
             print("\nDo you want to unfollow : {}".format(x))
             y = input("1. Yes\t2. No\nEnter the choice : ")
             if y == "1":
-                self._make_driver_wait("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/span/span[1]/button")
-                self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/span/span[1]/button").click()
+                self._make_driver_wait("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/div/span/span[1]/button")
+                self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[2]/div/span/span[1]/button").click()
                 self._make_driver_wait("//button[contains(text(), 'Unfollow')]")
                 self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
             else:
