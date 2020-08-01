@@ -2224,3 +2224,29 @@ JavaScript error: , line 0: UnknownError: The operation failed for reasons unrel
 Invalid port. Exiting...
 Invalid port. Exiting...
 Invalid port. Exiting...
+1596296782033	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileI001wh"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1596296783892	Marionette	INFO	Listening on port 46293
+1596296783939	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  Message: TypeError: NetworkError when attempting to fetch resource.
+  Stack:
+    timedFetch/<@resource://services-common/kinto-http-client.js:549:22
+timedFetch@resource://services-common/kinto-http-client.js:527:20
+request@resource://services-common/kinto-http-client.js:613:41
+execute@resource://services-common/kinto-http-client.js:2400:44
+_fetchChangeset@resource://services-settings/RemoteSettingsClient.jsm:1036:22
+_importChanges@resource://services-settings/RemoteSettingsClient.jsm:888:20
+maybeSync@resource://services-settings/RemoteSettingsClient.jsm:593:35
+
+1596297174278	Marionette	INFO	Stopped listening on port 46293
+1596297175746	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilee2Iw0p"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1596297177231	Marionette	INFO	Listening on port 39381
+1596297177250	Marionette	WARN	TLS certificate errors will be ignored for this session
+1596299245736	Marionette	INFO	Stopped listening on port 39381
+1596299251088	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilel4Bfoy"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1596299252600	Marionette	INFO	Listening on port 38337
+1596299252695	Marionette	WARN	TLS certificate errors will be ignored for this session
+1596299496567	Marionette	INFO	Stopped listening on port 38337
