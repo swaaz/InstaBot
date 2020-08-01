@@ -98,6 +98,7 @@ class Instabot():
         self.driver.find_element_by_xpath("//a[contains(@href,'/followers')]").click()
         followers = self._get_names()
         not_following_back = [user for user in following if user not in followers]
+        sleep(2)
         print("\n****** Unfollowers ******\n")
         prev = " "
         count = 0
@@ -120,6 +121,7 @@ class Instabot():
         self.driver.find_element_by_xpath("//a[contains(@href,'/followers')]").click()
         followers = self._get_names()
         fans = [user for user in followers if user not in following]
+        sleep(2)
         print("\n****** Fans ******\n")
         prev = " "
         count = 0
@@ -148,6 +150,7 @@ class Instabot():
         self._make_driver_wait("/html/body/div[4]/div/div/div[1]/div/div[2]/button")
         self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[1]/div/div[2]/button").click()
         return names
+        sleep(2)
     
     #function cancel unfollowers
     def cancel_unfollowers(self):
