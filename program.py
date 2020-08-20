@@ -19,6 +19,9 @@ class Instabot():
 
     #function to login
     def __init__(self,username,password):
+        """function to login
+        input: username, password
+        output: will login to instagram"""
         self.username = username    #storing the username in class
         self.password = password    #storig the password in class
         self.driver = webdriver.Firefox(executable_path = "./webdrivers/firefox_webdriver/geckodriver-v0.26.0-linux64/geckodriver") #this is the path of webdriver, here I used geckodriver-linux since I am using Firefox in linux. Change the path of webdriver according to your environment
@@ -35,6 +38,7 @@ class Instabot():
 
     #function to cancel all the pending follow requests
     def cancel_sent_requests(self):
+        """function to cancel follow pending request"""
         self._make_driver_wait("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a")
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         self._make_driver_wait("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a")
@@ -79,6 +83,7 @@ class Instabot():
 
     #function which return the name from the list
     def _get_pending_names(self):
+        """function which will return names of pending folowers"""
         self._make_driver_wait("/html/body/div[1]/section/main/div/article/main")
         scroll_box = self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/article/main")
         self._make_driver_wait("-utLf", "class_name")
@@ -87,6 +92,7 @@ class Instabot():
 
     #function to get the names of unfollowers
     def get_unfollowers(self):
+        """function which will return list of unfollowers"""
         self._make_driver_wait("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a")
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         self._make_driver_wait("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a")
@@ -110,6 +116,7 @@ class Instabot():
         
     #function to get the names of fans
     def get_fans(self):
+        """function which will return list of fans"""
         self._make_driver_wait("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a")
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         self._make_driver_wait("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a")
@@ -133,6 +140,7 @@ class Instabot():
 
     #function which returns list of names
     def _get_names(self):
+        """function which will return list of names"""
         # TODO: The app might still change in future. If timeout exception happens again, just change the path of the elements below. 
         self._make_driver_wait("/html/body/div[4]/div/div/div[2]")
         scroll_box = self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[2]")
@@ -154,6 +162,7 @@ class Instabot():
     
     #function cancel unfollowers
     def cancel_unfollowers(self):
+        """function which will cancel unfollowers"""
         self._make_driver_wait("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a")
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         self._make_driver_wait("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a")
@@ -184,6 +193,7 @@ class Instabot():
                 continue
 
     def Exit(self):
+        """function to logout"""
         self._make_driver_wait("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a")
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[1]/a").click()
         self._make_driver_wait("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div[2]/div[1]/a")
