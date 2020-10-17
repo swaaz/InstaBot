@@ -3,12 +3,12 @@ from selenium import webdriver
 from time import sleep
 import sys
 import secrets
+from selenium.webdriver.firefox.options import Options
 
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import StaleElementReferenceException
-
 
 #getting values usr and pwd from secrets.py file and assigning the values to username and password
 username = secrets.usr
@@ -24,7 +24,19 @@ class Instabot():
         output: will login to instagram"""
         self.username = username    #storing the username in class
         self.password = password    #storig the password in class
-        self.driver = webdriver.Firefox(executable_path = "./webdrivers/firefox_webdriver/geckodriver-v0.26.0-linux64/geckodriver") #this is the path of webdriver, here I used geckodriver-linux since I am using Firefox in linux. Change the path of webdriver according to your environment
+        # Adding options to browser
+        opt = Options()
+        opt.add_argument("--disable-infobars")
+        opt.add_argument("start-maximized")
+        opt.add_argument('--no-sandbox')
+        # to add preferences, un-comment thses lines
+        # opt.add_experimental_option("prefs", {
+        #                                         "profile.default_content_setting_values.media_stream_mic": 1,
+        #                                         "profile.default_content_setting_values.media_stream_camera": 1,
+        #                                         "profile.default_content_setting_values.geolocation": 2,
+        #                                         "profile.default_content_setting_values.notifications": 2,
+        # })
+        self.driver = webdriver.Firefox(options=opt,executable_path = "./webdrivers/firefox_webdriver/geckodriver-v0.26.0-linux64/geckodriver") #this is the path of webdriver, here I used geckodriver-linux since I am using Firefox in linux. Change the path of webdriver according to your environment
         self.driver.get("https://instagram.com/")
         self._make_driver_wait("//input[@name=\"username\"]")
         self.driver.find_element_by_xpath("//input[@name=\"username\"]").send_keys(username)    
