@@ -142,8 +142,8 @@ class Instabot():
     def _get_names(self):
         """function which will return list of names"""
         # TODO: The app might still change in future. If timeout exception happens again, just change the path of the elements below. 
-        self._make_driver_wait("/html/body/div[4]/div/div/div[2]")
-        scroll_box = self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[2]")
+        self._make_driver_wait("/html/body/div[5]/div/div/div[2]")
+        scroll_box = self.driver.find_element_by_xpath("/html/body/div[5]/div/div/div[2]")
         last_ht, ht = 0, 1
         while last_ht != ht:
             last_ht = ht
@@ -155,8 +155,9 @@ class Instabot():
         self._make_driver_wait('a', "tag_name")
         links = scroll_box.find_elements_by_tag_name('a')
         names = [name.text for name in links if name.text != '']
-        self._make_driver_wait("/html/body/div[4]/div/div/div[1]/div/div[2]/button")
-        self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[1]/div/div[2]/button").click()
+    
+        self._make_driver_wait("/html/body/div[5]/div/div/div[1]/div/div[2]/button")
+        self.driver.find_element_by_xpath("/html/body/div[5]/div/div/div[1]/div/div[2]/button").click()
         return names
         sleep(2)
     
