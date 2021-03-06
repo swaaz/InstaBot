@@ -28,8 +28,7 @@ class Instabot():
         self.driver.get("https://instagram.com/")
         self._make_driver_wait("//input[@name=\"username\"]")
         self.driver.find_element_by_xpath("//input[@name=\"username\"]").send_keys(username)    
-        self.driver.find_element_by_xpath("//input[@name=\"password\"]").send_keys(password)
-        self._make_driver_wait('//button[@type="submit"]')    
+        self.driver.find_element_by_xpath("//input[@name=\"password\"]").send_keys(password)    
         self.driver.find_element_by_xpath('//button[@type="submit"]').click()
         self._make_driver_wait("//button[contains(text(), 'Not Now')]")
         self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]").click()
@@ -100,12 +99,21 @@ class Instabot():
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div/div[2]/div[1]/div/div/a").click()
         self._make_driver_wait("//a[contains(@href,'/following')]")
         self.driver.find_element_by_xpath("//a[contains(@href,'/following')]").click()
-        following = self._get_names()
+        following_number = self.driver.find_element_by_css_selector('li.Y8-fY:nth-child(3) > a:nth-child(1) > span:nth-child(1)')
+        
+        following = self._get_names(int(following_number.text))
         self._make_driver_wait("//a[contains(@href,'/followers')]")
         self.driver.find_element_by_xpath("//a[contains(@href,'/followers')]").click()
-        followers = self._get_names()
+        followers_number = self.driver.find_element_by_css_selector('li.Y8-fY:nth-child(2) > a:nth-child(1) > span:nth-child(1)')
+
+        followers = self._get_names(int(followers_number.text))
         not_following_back = [user for user in following if user not in followers]
         sleep(2)
+
+        z = self.driver.find_element_by_css_selector('li.Y8-fY:nth-child(3) > a:nth-child(1) > span:nth-child(1)')
+        print(z.text)
+
+
         print("\n****** Unfollowers ******\n")
         prev = " "
         count = 0
@@ -124,10 +132,14 @@ class Instabot():
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div/div[2]/div[1]/div/div/a").click()
         self._make_driver_wait("//a[contains(@href,'/following')]")
         self.driver.find_element_by_xpath("//a[contains(@href,'/following')]").click()
-        following = self._get_names()
+        following_number = self.driver.find_element_by_css_selector('li.Y8-fY:nth-child(3) > a:nth-child(1) > span:nth-child(1)')
+        
+        following = self._get_names(int(following_number.text))
         self._make_driver_wait("//a[contains(@href,'/followers')]")
         self.driver.find_element_by_xpath("//a[contains(@href,'/followers')]").click()
-        followers = self._get_names()
+        followers_number = self.driver.find_element_by_css_selector('li.Y8-fY:nth-child(2) > a:nth-child(1) > span:nth-child(1)')
+
+        followers = self._get_names(int(followers_number.text))
         fans = [user for user in followers if user not in following]
         sleep(2)
         print("\n****** Fans ******\n")
@@ -140,9 +152,9 @@ class Instabot():
                 prev = x
 
     #function which returns list of names
-    def _get_names(self):
+    def _get_names(self, count):
         """function which will return list of names"""
-        # TODO: The app might still change in future. If timeout exception happens again, just change the path of the elements below. 
+        # TODO: The app might still change in future. If timeout exception happens again, just change the path of the elements below.
         self._make_driver_wait("/html/body/div[5]/div/div/div[2]")
         scroll_box = self.driver.find_element_by_xpath("/html/body/div[5]/div/div/div[2]")
         last_ht, ht = 0, 1
@@ -156,7 +168,7 @@ class Instabot():
         self._make_driver_wait('a', "tag_name")
         links = scroll_box.find_elements_by_tag_name('a')
         names = [name.text for name in links if name.text != '']
-    
+        names = names[:count]
         self._make_driver_wait("/html/body/div[5]/div/div/div[1]/div/div[2]/button")
         self.driver.find_element_by_xpath("/html/body/div[5]/div/div/div[1]/div/div[2]/button").click()
         return names
@@ -171,10 +183,16 @@ class Instabot():
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/section/div[3]/div[1]/div/div/div[2]/div[1]/div/div/a").click()
         self._make_driver_wait("//a[contains(@href,'/following')]")
         self.driver.find_element_by_xpath("//a[contains(@href,'/following')]").click()
-        following = self._get_names()
+
+        following_number = self.driver.find_element_by_css_selector('li.Y8-fY:nth-child(3) > a:nth-child(1) > span:nth-child(1)')
+        
+        following = self._get_names(int(following_number.text))
         self._make_driver_wait("//a[contains(@href,'/followers')]")
         self.driver.find_element_by_xpath("//a[contains(@href,'/followers')]").click()
-        followers = self._get_names()
+
+        followers_number = self.driver.find_element_by_css_selector('li.Y8-fY:nth-child(2) > a:nth-child(1) > span:nth-child(1)')
+
+        followers = self._get_names(int(followers_number.text))
         not_following_back = [user for user in following if user not in followers]
         for x in not_following_back:
             y = None
@@ -204,7 +222,7 @@ class Instabot():
         self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div/button").click()
         self._make_driver_wait("//button[contains(text(), 'Log Out')]")
         self.driver.find_element_by_xpath("//button[contains(text(), 'Log Out')]").click()
-        exit()
+        self.driver.close()
 
     def _make_driver_wait(self, element_to_locate, by='xpath'):
         wait = WebDriverWait(self.driver, 20)
