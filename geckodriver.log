@@ -2224,3 +2224,11 @@ JavaScript error: , line 0: UnknownError: The operation failed for reasons unrel
 Invalid port. Exiting...
 Invalid port. Exiting...
 Invalid port. Exiting...
+1615049954837	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileA0ZN2s"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615049956474	Marionette	INFO	Listening on port 46647
+1615049956562	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615049999966	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefOb9MZ"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615050001727	Marionette	INFO	Listening on port 33875
+1615050001785	Marionette	WARN	TLS certificate errors will be ignored for this session
