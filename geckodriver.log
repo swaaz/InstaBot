@@ -3743,3 +3743,19 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1615053032741	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilezZR60f"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615053034681	Marionette	INFO	Listening on port 46699
+1615053034764	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615053449548	Marionette	INFO	Stopped listening on port 46699
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1615054145825	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile2BQ9mK"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615054147593	Marionette	INFO	Listening on port 37783
+1615054147645	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615054374137	Marionette	INFO	Stopped listening on port 37783
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
