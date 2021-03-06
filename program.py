@@ -63,18 +63,21 @@ class Instabot():
                     count += 1
                     print(count,pending_id)
                     prev = pending_id
-                self._make_driver_wait("//input[@placeholder=\"Search\"]")
-                self.driver.find_element_by_xpath("//input[@placeholder=\"Search\"]").send_keys(pending_id)
-                self._make_driver_wait("//a[contains(@href,'/{}/')]".format(pending_id))
-                self.driver.find_element_by_xpath("//a[contains(@href,'/{}/')]".format(pending_id)).click()
-                self._make_driver_wait("//button[contains(text(), 'Requested')]")
-                self.driver.find_element_by_xpath("//button[contains(text(), 'Requested')]").click()
-                self._make_driver_wait("//button[contains(text(), 'Unfollow')]")
-                self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
-                sleep(2)
-                self.driver.back()
-                sleep(3)
+                    self._make_driver_wait("//input[@placeholder=\"Search\"]")
+                    self.driver.find_element_by_xpath("//input[@placeholder=\"Search\"]").send_keys(pending_id)
+                    self._make_driver_wait("//a[contains(@href,'/{}/')]".format(pending_id))
+                    self.driver.find_element_by_xpath("//a[contains(@href,'/{}/')]".format(pending_id)).click()
+                    self._make_driver_wait("//button[contains(text(), 'Requested')]")
+                    self.driver.find_element_by_xpath("//button[contains(text(), 'Requested')]").click()
+                    self._make_driver_wait("//button[contains(text(), 'Unfollow')]")
+                    self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
+                    sleep(2)
+                    self.driver.back()
+                    sleep(3)
+                else:
+                    sleep(7)
                 self.driver.refresh()
+                
             except:
                 print("Tadaaaa!!!!!, Task Completed!!!!")
                 z = False
@@ -211,6 +214,7 @@ class Instabot():
                 self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
             else:
                 continue
+        print('\nYayy!!! Task is completed!!')
 
     def Exit(self):
         """function to logout"""
