@@ -96,7 +96,7 @@ python-debian===0.1.36ubuntu1
 pytz==2019.3
 pyudev==0.21.0
 pyxdg==0.26
-PyYAML==5.3.1
+PyYAML==5.4
 pyzmq==19.0.1
 qtconsole==4.7.5
 QtPy==1.9.0
