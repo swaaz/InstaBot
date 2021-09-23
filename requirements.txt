@@ -112,7 +112,7 @@ six==1.14.0
 systemd-python==234
 terminado==0.8.3
 testpath==0.4.4
-thefuck==3.30
+thefuck==3.31
 toml==0.10.1
 tornado==6.0.4
 traitlets==4.3.3
