@@ -7,7 +7,10 @@ This is an Instagram bot that can automate and perform some tasks; makes your ta
     <img src="./src/bot.gif" width="300x" height="400px">
 </div>
 
-[![Instabot](https://img.youtube.com/vi/tlb7oM2408M/0.jpg)](https://www.youtube.com/watch?v=tlb7oM2408M)
+## Video Demo
+Click on the below image to watch video
+
+[![Instabot](https://user-images.githubusercontent.com/42874695/134491592-fb0d54a9-2b94-46b1-959a-7958c613560e.png)](https://www.youtube.com/watch?v=tlb7oM2408M)
 
 ### Clone project
 First you need to fork and then copy the url from clone option  
